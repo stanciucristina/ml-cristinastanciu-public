@@ -1,3 +1,27 @@
+<?php
+
+// Open the file. Read mode
+$file = fopen("places.csv", "r"); 
+
+// New array. One position - One file line
+$places = array();
+
+// Read the file until End Of File
+while(!feof($file)) {
+    // One position of the array - One file
+    // We use explode funtion to separate the fields
+    $places[] = explode(";",fgets($file));
+}
+
+//  DEBUG CODE
+/*
+echo "<pre>";
+print_r($places);
+echo "</pre>";
+*/
+
+
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -115,12 +139,15 @@
 	<div style="display: flex; justify-content: center;">
         
           </div>
+          
 	</div>
   
+  
   <h2>Lugares que no me puedo perder</h2>
+  
 	<div style="display: flex; justify-content: center;">
-		<a class="linkplace" href=/nuevolugar.html>Nuevo Lugar que visitar</a>
-		<a class="linkplace" href=/table.html>Lugares que no me puedo perder</a>
+		<a class="linkplace" href=/formular.htm>Nuevo Lugar que visitar</a>
+		<a class="linkplace" href=/tabel.php>Lugares que no me puedo perder</a>
 	</div>
   
    
@@ -137,47 +164,26 @@
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td><form action="/action_page.php">
-            <input type="checkbox" id="Agaete" name="Agaete" value="Agaete"></form></td>
-            <td>1</td>
-            <td>Está situado en el noroeste de<br> la isla de Gran Canaria</td>
-            <td>Agaete</td>
-            <td><a href="https://www.aytoagaete.es//">Oficial Agaete Page</a></td>
-            <td><a href="https://shorturl.at/BJPTV"><img src="https://shorturl.at/jzFY9"></a></td>
-            <td><img src="https://shorturl.at/orNU4" alt="Agaete"></td>
-            </form>
-          </tr>
-          <tr>
-            <td><form action="/action_page.php">
-              <input type="checkbox" id="Agaete" name="Agaete" value="Agaete"></form></td>
-              <td>2</td>
-            <td> Es una localidad y municipio español perteneciente a la isla de Gran Canaria,<br> en la provincia de Las Palmas</td>
-            <td>Aguimes</td>
-            <td><a href="https://aguimes.es/">Oficial Aguimes Page</a></td>
-            <td><a href="https://shorturl.at/dEMP4"><img src="https://shorturl.at/dsER0"></a></td>
-            <td><img src="https://shorturl.at/cjlT2" alt="Aguimes"></td>
-          </tr>
-          <tr>
-            <td><form action="/action_page.php">
-              <input type="checkbox" id="Artenara" name="Artenara" value="Artenara"></form></td> 
-              <td>3</td>
-              <td>Ser el municipio cuya cabecera municipal se localiza a mayor altitud,<br> así como por ser el menos poblado de la isla</td>
-            <td>Artenara</td>
-            <td><a href="https://www.artenara.es/">Oficial Artenara Page</a></td>
-            <td><a href="https://shorturl.at/xJQW7"><img src="https://shorturl.at/akpY6"></a></td>
-            <td><img src="https://shorturl.at/bqO05" alt="Artenara"></td>
-          </tr>
-          <tr>
-            <td><form action="/action_page.php">
-              <input type="checkbox" id="Arucas" name="Arucas" value="Arucas"></form></td>
-              <td>4</td>
-            <td>Destaca dentro de su patrimonio histórico-artístico la iglesia de San Juan Bautista,<br> conocida popularmente como la Catedral de Arucas</td>
-            <td>Arucas</td>
-            <td><a href="https://www.arucas.org/modules.php?mod=portal&file=index">Oficial Arucas Page</a></td>
-            <td><a href="https://shorturl.at/wACR8"><img src="https://shorturl.at/efmxU"></a></td>
-            <td><img src="https://shorturl.at/mnqDL" alt="Arucas"></td>
-          </tr>
+        <?php
+
+// Iterate over the $places array
+// $place will contain one place on every iteration
+foreach ($places as $place) {
+    
+    echo "<tr>";
+    echo "<td><input type='checkbox' checked='checked'></td>";
+    echo "<td>$place[0]</td>";
+    echo "<td>$place[1]</td>";
+    echo "<td>$place[2]</td>";
+    echo "<td><a href='$place[3]'>$place[3]</a></td>";
+    echo "<td><a href='$place[4]'>$place[4]</a></td>";
+    echo "<td><img src='upload/".$place[5]."' width='200px'></td>";
+    echo "</tr>";
+
+}
+
+?>
+          
           </tbody>
         </tbody>
       </table>
@@ -186,5 +192,6 @@
       <footer>
         <p>&copy; Stanciu Cristina</p>
       </footer>
+      
 </body>
-</html>
+</html> 
