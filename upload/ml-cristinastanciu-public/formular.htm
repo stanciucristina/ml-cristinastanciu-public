@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Descubriendo Gran Canaria</title>
+    <style>
+        body {
+            background-color: white;
+            margin: 0;
+            padding: 0;
+            padding-top: 50px;
+            padding-bottom: 50px;
+        }
+
+        h1 {
+            font-family: "Times New Roman", Times, serif;
+            color: white;
+            background-color: black;
+            text-align: center;
+            padding: 20px;
+            margin: 0;
+        }
+
+        button {
+            font-family: "Times New Roman", Times, serif;
+            font-size: 18px;
+            color: black;
+            background-color: transparent;
+            border: none;
+            cursor: pointer;
+            margin: 10px;
+            padding: 10px 20px;
+            transition: color 0.2s, background-color 0.2s;
+        }
+
+        button:hover {
+            color: white;
+            background-color: black;
+        }
+
+        .form-container {
+            width: 600px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        form {
+            width: 50%;
+            margin: 0 auto;
+            background-color: #f2f2f2;
+            border-radius: 5px;
+            padding: 20px;
+            text-align: left;
+            font-family: 'Times New Roman', Times, serif, sans-serif;
+            font-size: 16px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        input[type="text"],
+        textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+            margin-bottom: 20px;
+        }
+
+        select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+            margin-bottom: 20px;
+        }
+
+        input[type="submit"] {
+            background-color: #4CAF50;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+
+        input[type="submit"]:active {
+            background-color: #3e8e41;
+        }
+
+        input[type="submit"]:focus {
+            outline: none;
+        }
+
+        textarea {
+            height: 200px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Descubriendo Gran Canaria</h1>
+    <div style="display: flex; justify-content: center;">
+        <button onclick="location.href='formular.htm'">Nuevo Lugar que visitar</button>
+        <button onclick="location.href='tabel.php'">Lugares que no me puedo perder</button>
+    </div>
+    <div class="form-container">
+        <form action="get_data.php" method="POST" enctype="multipart/form-data">
+            <h2>Nuevo lugar que visitar</h2>
+            <div class="form-group">
+                <label for="nombre-lugar">Nombre del lugar:</label>
+                <input type="text" id="nombre-lugar" name="nombre-lugar" required>
+            </div>
+            <div class="form-group">
+                <label for="descripcion">Descripcion:</label>
+                <textarea id="descripcion" name="descripcion" required></textarea>
+            </div>
+            <div>
+                <label for="municipio">Municipio donde se encuentra</label>
+                <select name="municipio" id="municipio">
+                    <option value=""></option>
+                    <option value="Agaete">Agaete</option>
+                    <option value="Agüimes">Aguimes</option>
+                    <option value="Artenara">Artenara</option>
+                    <option value="Arucas">Arucas</option>
+                    <option value="Firgus">Firgus</option>
+                    <option value="Gáldar">Galdar</option>
+                    <option value="Ingenio">Ingenio</option>
+                    <option value="La Aldea de San Nicolás">La Aldea de San Nicolas</option>
+                    <option value="Las Palmas de Gran Canaria">Las Palmas de Gran Canaria</option>
+                    <option value="Mogán">Mogan</option>
+                    <option value="Moya">Moya</option>
+                    <option value="San Bartolomé de Tirajana">San Bartolome de Tirajana</option>
+                    <option value="Santa Brígida">Santa Brigida</option>
+                    <option value="Santa Lucía de Tirajana">Santa Lucia de Tirajana</option>
+                    <option value="Santa María de Guía de Gran Canaria">Santa Maria de Guia de Gran Canaria</option>
+                    <option value="Tejeda">Tejeda</option>
+                    <option value="Telde">Telde</option>
+                    <option value="Teror">Teror</option>
+                    <option value="Valleseco">Valleseco</option>
+                    <option value="Valsequillo de Gran Canaria">Valsequillo de Gran Canaria</option>
+                    <option value="Vega de San Mateo">Vega de San Mateo</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="url-info">URL con mas informacion:</label>
+                <input id="url-info" name="url-info" required>
+            </div>
+            <div class="form-group">
+                <label for="url-maps">URL con enlace A Google Maps:</label>
+                <input id="url-maps" name="url-maps" required>
+            </div>
+            <div class="form-group">
+                <label for="imagen">Imagen:</label>
+                <input type="file" id="imagen" name="imagen" required>
+            </div>
+            <div class="form-group">
+                <button type="Submit">Submit</button>
+            </div>
+        </form>
+    </div>
+</body>
+</html>
